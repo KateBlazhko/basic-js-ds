@@ -26,11 +26,15 @@ function removeKFromList(l, k) {
   l = removeValue(l, k)
 
   function removeValue(node, k) {
+
     if (!node) {
       return null
     }
+
     if (node.value === k) {
       node = node.next
+      node= removeValue(node, k)
+      return node
     }
 
     node.next = removeValue(node.next, k)
